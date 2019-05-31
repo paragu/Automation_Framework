@@ -12,6 +12,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.asserts.SoftAssert;
 
+import xls.ShineXlsReader;
+
 public class TestBase {
 	public static WebDriver driver=null;
 	public static FileInputStream fip=null;
@@ -20,6 +22,8 @@ public class TestBase {
 	public static SoftAssert st=null;
 	public static boolean TestFail=false;
 	public static int temp=0;
+	public static ShineXlsReader Mxls;
+	public static Hashtable<String ,String> ht;
 	
 	
 	public static void initialization() throws Throwable{
@@ -75,6 +79,10 @@ public class TestBase {
 					String Runstatus = Mxls.getCellData(ModuleName, 1, j);
 					ht.put(TestId, Runstatus);
 				}
+				
+		
 	
-	
+}
+}
+	}
 }

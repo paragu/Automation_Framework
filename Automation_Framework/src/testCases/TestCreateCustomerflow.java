@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.SkipException;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -19,6 +21,12 @@ import xls.ShineXlsReader;
 
 public class TestCreateCustomerflow extends TestBase {
 	
+	@BeforeMethod
+	public void btest(){
+		if(!ht.get("Test123").equalsIgnoreCase("yes")){
+			throw new SkipException("This testcase is set no for execution....");
+		}
+	}
 	
 	@Test(dataProvider="getdata")
 	public void testcase1(String cname,String cdesc,String cradio){
