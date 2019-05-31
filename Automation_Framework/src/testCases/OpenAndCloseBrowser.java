@@ -9,7 +9,7 @@ public class OpenAndCloseBrowser extends TestBase{
 	@BeforeSuite
 	public void bsuite() throws Throwable{
 		initialization();
-	
+		moduledriver();
 	}
 	
 	@AfterSuite
