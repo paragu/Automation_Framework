@@ -1,6 +1,7 @@
 package base;
 
 import java.io.FileInputStream;
+import java.util.Hashtable;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -58,6 +59,22 @@ public class TestBase {
 		APP_LOGS.debug("closed browser");
 		
 	}
+	
+	public static void moduledriver(){
+		ht=new Hashtable<String,String>();
+		Mxls=new ShineXlsReader(System.getProperty("user.dir")+"\\src\\utility\\Moduledriver.xlsx");
+		int TotalModules = Mxls.getRowCount("Mainsheet");
+		for(int i=2;i<=TotalModules;i++){
+			String ModuleName = Mxls.getCellData("Mainsheet", 0, i);
+			String Exestatus = Mxls.getCellData("Mainsheet", 1, i);
+			
+			if(Exestatus.equalsIgnoreCase("yes")){
+				 int Totaltecases = Mxls.getRowCount(ModuleName);
+				for(int j=2;j<=Totaltecases;j++){
+					String TestId = Mxls.getCellData(ModuleName, 0, j);
+					String Runstatus = Mxls.getCellData(ModuleName, 1, j);
+					ht.put(TestId, Runstatus);
+				}
 	
 	
 }
